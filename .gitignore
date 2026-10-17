@@ -1,0 +1,11 @@
+# Bỏ qua rác của Visual Studio & C#
+**/.vs/
+**/bin/
+**/obj/
+**/appsettings.json
+**/appsettings.Development.json
+**/Uploads/
+
+# Bỏ qua rác của Angular & Node
+**/node_modules/
+**/dist/

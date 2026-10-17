@@ -1,0 +1,47 @@
+<div class="login-wrapper">
+    <div class="login-box" [class.shake]="isErrorShake">
+      
+      <div class="header">
+        <h2 class="title">Bí mật của chúng mình</h2>
+        <p class="subtitle">Nhập mật mã yêu thương để mở khóa 🔒</p>
+      </div>
+  
+      <!-- Khu vực hiển thị 6 dấu chấm PIN -->
+      <div class="pin-display">
+        <span class="pin-dot" 
+              *ngFor="let dot of dots; let i = index" 
+              [class.filled]="passcode.length > i">
+        </span>
+      </div>
+      
+      <!-- Dòng thông báo lỗi -->
+      <div class="error-msg" [class.visible]="errorMessage">{{ errorMessage }}</div>
+  
+      <!-- Bàn phím số -->
+      <div class="keypad">
+        <button class="key" (click)="appendNumber(1)">1</button>
+        <button class="key" (click)="appendNumber(2)">2</button>
+        <button class="key" (click)="appendNumber(3)">3</button>
+        
+        <button class="key" (click)="appendNumber(4)">4</button>
+        <button class="key" (click)="appendNumber(5)">5</button>
+        <button class="key" (click)="appendNumber(6)">6</button>
+        
+        <button class="key" (click)="appendNumber(7)">7</button>
+        <button class="key" (click)="appendNumber(8)">8</button>
+        <button class="key" (click)="appendNumber(9)">9</button>
+        
+        <button class="key empty"></button>
+        <button class="key" (click)="appendNumber(0)">0</button>
+        <button class="key icon" (click)="removeNumber()">
+           <!-- Icon Xóa (Backspace) -->
+           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
+              <line x1="18" y1="9" x2="12" y2="15"></line>
+              <line x1="12" y1="9" x2="18" y2="15"></line>
+           </svg>
+        </button>
+      </div>
+  
+    </div>
+  </div>

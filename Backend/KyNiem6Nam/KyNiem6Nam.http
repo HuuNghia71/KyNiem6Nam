@@ -1,0 +1,6 @@
+@KyNiem6Nam_HostAddress = http://localhost:5036
+
+GET {{KyNiem6Nam_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
