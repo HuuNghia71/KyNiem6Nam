@@ -22,15 +22,12 @@ services:
     depends_on:
       - sqlserver
     ports:
-      - "7121:8080" # Trả về cổng 7121 quen thuộc của bạn
+      - "7121:8080" 
     environment:
-      # Ghi đè chuỗi kết nối vào appsettings.json
-      # Chú ý thay đổi MatKhauSieuManh@123 và tên Database cho khớp
       - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=Kyniem6Nam;User Id=sa;Password=MatKhauSieuManh@123;TrustServerCertificate=True;
-      # Thêm các dòng JWT tương ứng với code của bạn vào đây:
-      - Jwt__Key=ThayBangChuoiKeyBiMatCuaBanTrongAppsettings
-      - Jwt__Issuer=ThayBangIssuerCuaBan
-      - Jwt__Audience=ThayBangAudienceCuaBan
+      - Jwt__Key=KyNiem6Nam_SecretKey_PhaiDaiHon256Bits_NghiaVaMai_123456
+      - Jwt__Issuer=KyNiem6NamApp
+      - Jwt__Audience=KyNiem6NamUser
 
 
   # Máy chủ Frontend
