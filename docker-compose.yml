@@ -27,6 +27,11 @@ services:
       # Ghi đè chuỗi kết nối vào appsettings.json
       # Chú ý thay đổi MatKhauSieuManh@123 và tên Database cho khớp
       - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=Kyniem6Nam;User Id=sa;Password=MatKhauSieuManh@123;TrustServerCertificate=True;
+      # Thêm các dòng JWT tương ứng với code của bạn vào đây:
+      - Jwt__Key=ThayBangChuoiKeyBiMatCuaBanTrongAppsettings
+      - Jwt__Issuer=ThayBangIssuerCuaBan
+      - Jwt__Audience=ThayBangAudienceCuaBan
+
 
   # Máy chủ Frontend
   frontend:
