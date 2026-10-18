@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # Máy chủ Cơ sở dữ liệu SQL Server
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: kyniem_db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "MatKhauSieuManh@123" # Tự đặt mật khẩu sa của bạn
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql # Giúp lưu lại data khi tắt docker
+
+  # Máy chủ Backend
+  backend:
+    build:
+      context: ./Backend/KyNiem6Nam
+      dockerfile: Dockerfile
+    container_name: kyniem_backend
+    depends_on:
+      - sqlserver
+    ports:
+      - "7121:8080" # Trả về cổng 7121 quen thuộc của bạn
+    environment:
+      # Ghi đè chuỗi kết nối vào appsettings.json
+      # Chú ý thay đổi MatKhauSieuManh@123 và tên Database cho khớp
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=Kyniem6Nam;User Id=sa;Password=MatKhauSieuManh@123;TrustServerCertificate=True;
+
+  # Máy chủ Frontend
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: kyniem_frontend
+    depends_on:
+      - backend
+    ports:
+      - "80:80" # Truy cập ở localhost (không cần đuôi :4200 nữa)
+
+volumes:
+  sqlserver_data:     
