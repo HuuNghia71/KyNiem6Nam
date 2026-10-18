@@ -3,15 +3,15 @@ version: '3.8'
 services:
   # Máy chủ Cơ sở dữ liệu SQL Server
   sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    image: mcr.microsoft.com/azure-sql-edge:latest
     container_name: kyniem_db
     environment:
       ACCEPT_EULA: "Y"
-      MSSQL_SA_PASSWORD: "MatKhauSieuManh@123" # Tự đặt mật khẩu sa của bạn
+      MSSQL_SA_PASSWORD: "MatKhauSieuManh@123"
     ports:
       - "1433:1433"
     volumes:
-      - sqlserver_data:/var/opt/mssql # Giúp lưu lại data khi tắt docker
+      - sqlserver_data:/var/opt/mssql
 
   # Máy chủ Backend
   backend:
