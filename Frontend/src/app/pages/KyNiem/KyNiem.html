@@ -1,0 +1,328 @@
+<div class="bg-background font-body-md text-body-md text-on-surface flex flex-col min-h-screen relative overflow-x-clip">
+    
+  <!-- THANH ĐIỀU HƯỚNG PHÍA TRÊN (HEADER) -->
+  <header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_4px_20px_rgba(182,14,61,0.05)] border-b border-outline-variant/20">
+    <div class="h-16 px-4 md:px-8 max-w-6xl mx-auto flex items-center justify-between">
+      
+     <!-- LOGO ĐÃ ĐƯỢC LÀM LẠI ĐẸP VÀ CHUẨN RESPONSIVE -->
+     <div class="flex items-center gap-2.5 md:gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+        
+      <!-- Icon Logo (Tạo bằng CSS + Icon: Vĩnh viễn không bị lỗi mất ảnh) -->
+      <div class="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-gradient-to-br from-primary to-secondary text-white flex items-center justify-center shadow-md flex-shrink-0 border border-white/50">
+        <span class="material-symbols-outlined text-[20px] md:text-[22px]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+      </div>
+      
+      <!-- Chữ Logo đã được phóng to và cách điệu -->
+      <div class="flex flex-col justify-center mt-0.5">
+        <!-- Tên Nghĩa & Thư: Dùng font lãng mạn (headline-md), chữ to hơn, có bóng mờ nhẹ (drop-shadow) -->
+        <span class="font-headline-md text-[18px] md:text-[24px] text-on-surface font-bold tracking-tight leading-none mb-1 drop-shadow-sm">
+          Nghĩa 
+          <span class="text-primary italic text-[22px] md:text-[28px] mx-0.5">&amp;</span> 
+          Thư
+        </span>
+        <!-- Phụ đề: To hơn một chút, khoảng cách các chữ giãn rộng ra (tracking-[0.2em]) để nhìn rất Tây và sang -->
+        <span class="font-label-sm text-[10px] md:text-[12px] text-tertiary tracking-[0.2em] uppercase font-bold leading-none">
+          Kỷ Niệm 6 Năm
+        </span>
+      </div>
+      
+    </div>
+
+      <!-- MENU DÀNH CHO LAPTOP/PC (Ẩn trên điện thoại) -->
+      <div class="hidden md:flex items-center gap-6 font-label-md text-on-surface-variant">
+        <a href="#" class="text-primary font-bold flex items-center gap-1.5 hover:scale-105 transition-transform"><span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span> Kỷ Niệm</a>
+        <a href="#" class="hover:text-primary flex items-center gap-1.5 hover:scale-105 transition-transform"><span class="material-symbols-outlined text-[20px]">mark_email_unread</span> Thư Tình</a>
+        <a href="#" class="hover:text-primary flex items-center gap-1.5 hover:scale-105 transition-transform"><span class="material-symbols-outlined text-[20px]">location_on</span> Vị Trí</a>
+        <a href="#" class="hover:text-primary flex items-center gap-1.5 hover:scale-105 transition-transform"><span class="material-symbols-outlined text-[20px]">album</span> Nhạc Đôi</a>
+        <a href="#" class="hover:text-primary flex items-center gap-1.5 hover:scale-105 transition-transform"><span class="material-symbols-outlined text-[20px]">photo_library</span> Album</a>
+      </div>
+
+      <!-- AVATAR GÓC PHẢI -->
+      <div class="relative min-w-[40px] min-h-[40px] flex items-center justify-end">
+        <img alt="Profile" class="w-9 h-9 rounded-full object-cover shadow-sm cursor-pointer hover:ring-2 hover:ring-primary-container transition-all" [src]="hoangSignal?.avatarUrl || 'https://lh3.googleusercontent.com/aida-public/AB6AXuA6f3xWkaJDH2YqJh1tUq47piqaYgGiCSeVAg3-WnME1Gkpy42sJ4SVL6gXZvpswAi88uObH1yihXGiPiv4mQ3FCk7zBt6KGbgcDKv8z7OL8hpafmMptxG137qrVohofU5s8k2S9LRA1f2r3oIiXfjddbixzPtrwrmyCBzM2q-rYLh1EHbDjnvzr9nEI3wYsy0d3k9ZuTL1OyJUq35tjVD_S3-empuYNc2uLnyr1geyVXEiKFbqabuM'">
+        <span class="absolute top-0.5 right-0 w-3 h-3 bg-primary rounded-full animate-ping opacity-75"></span>
+        <span class="absolute top-1 right-0.5 w-2 h-2 bg-primary rounded-full ring-2 ring-white"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- NỘI DUNG CHÍNH (MAIN CONTENT) -->
+  <main class="flex flex-col relative w-full pt-20 md:pt-24 pb-28 md:pb-12 bg-surface">
+    <!-- Cấu trúc Lưới (Grid): Mobile 1 cột, Laptop/PC chia 12 cột -->
+    <div class="w-full max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-space-lg lg:gap-8">
+      
+      <!-- HIỆU ỨNG TRÁI TIM BAY -->
+      <div class="fixed inset-0 pointer-events-none z-40 overflow-hidden" id="heart-emitter-field"></div>
+
+      <!-- ================== CỘT TRÁI (LAPTOP) / TRÊN CÙNG (MOBILE) ================== -->
+      <div class="lg:col-span-5 flex flex-col gap-space-lg">
+        
+        <!-- THẺ ĐẾM NGÀY YÊU HERO -->
+        <section class="relative w-full rounded-2xl bg-surface-container-low shadow-md p-6 flex flex-col items-center overflow-hidden">
+          <div class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-secondary-container/30 blur-3xl pointer-events-none"></div>
+          <div class="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-primary-fixed/40 blur-2xl pointer-events-none"></div>
+          
+          <div class="flex items-center justify-between w-full mb-4 z-10">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-tertiary-fixed text-tertiary-fixed-dim font-label-sm text-label-sm shadow-sm">
+              <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+              6 Năm Trọn Vẹn
+            </span>
+            <span class="font-label-md text-label-md text-secondary font-semibold bg-white/50 px-2.5 py-1 rounded-md backdrop-blur-sm">
+              24/10/2020 - {{ today | date:'dd/MM/yyyy' }}
+            </span>
+          </div>
+
+          <div class="relative my-2 z-10 flex flex-col items-center group">
+            <div class="relative w-36 h-36 md:w-44 md:h-44 rounded-full p-1.5 bg-gradient-to-tr from-primary via-secondary-container to-surface-bright shadow-xl flex items-center justify-center transition-transform group-hover:scale-105 duration-300">
+              <img alt="Hoàng &amp; Mai Portrait" class="w-full h-full rounded-full object-cover border-4 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6f3xWkaJDH2YqJh1tUq47piqaYgGiCSeVAg3-WnME1Gkpy42sJ4SVL6gXZvpswAi88uObH1yihXGiPiv4mQ3FCk7zBt6KGbgcDKv8z7OL8hpafmMptxG137qrVohofU5s8k2S9LRA1f2r3oIiXfjddbixzPtrwrmyCBzM2q-rYLh1EHbDjnvzr9nEI3wYsy0d3k9ZuTL1OyJUq35tjVD_S3-empuYNc2uLnyr1geyVXEiKFbqabuM">
+              <div class="absolute -bottom-2 right-2 w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg animate-bounce">
+                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center z-10 mt-4">
+            <div class="flex items-baseline justify-center gap-1.5">
+              <!-- Hiển thị Số Ngày -->
+              <span class="font-display-lg-mobile text-[40px] leading-[48px] md:text-[48px] md:leading-[56px] text-primary tracking-tight font-bold">
+                {{ days | number:'1.0-0' }}
+              </span>
+              <span class="font-headline-sm text-headline-sm text-secondary font-medium">Ngày Yêu</span>
+            </div>
+            <!-- Hiển thị Số Tháng -->
+            <p class="font-body-md text-body-md text-tertiary mt-1">Chúng mình đã cùng nhau trải qua {{ months }} tháng hạnh phúc</p>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-3 w-full mt-6 z-10">
+            <div class="flex flex-col items-center justify-center p-3 rounded-xl bg-white shadow-sm border border-outline-variant/30 text-center hover:bg-surface-container-low transition-colors">
+              <!-- Hiển thị Số Giờ -->
+              <span class="font-title-md text-title-md text-on-surface font-bold text-lg">
+                {{ hours | number:'1.0-0' }}
+              </span>
+              <span class="font-label-sm text-[10px] text-outline uppercase tracking-widest mt-0.5">Giờ Bên Nhau</span>
+            </div>
+            <div class="flex flex-col items-center justify-center p-3 rounded-xl bg-white shadow-sm border border-outline-variant/30 text-center hover:bg-surface-container-low transition-colors">
+              <!-- Hiển thị Số Phút -->
+              <span class="font-title-md text-title-md text-on-surface font-bold text-lg">
+                {{ minutes | number:'1.0-0' }}
+              </span>
+              <span class="font-label-sm text-[10px] text-outline uppercase tracking-widest mt-0.5">Phút Nhớ Nhau</span>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- NÚT TƯƠNG TÁC NHANH -->
+        <section class="grid grid-cols-2 gap-4 w-full">
+          <button class="relative overflow-hidden group flex items-center justify-center gap-2 py-4 px-3 rounded-2xl bg-primary text-on-primary font-label-lg text-label-lg shadow-md hover:bg-primary-container active:scale-95 transition-all duration-200" id="send-kiss-btn" type="button">
+            <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+            <span class="truncate">Gửi nụ hôn ảo 💋</span>
+          </button>
+          <button class="relative overflow-hidden group flex items-center justify-center gap-2 py-4 px-3 rounded-2xl bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-white font-label-lg text-label-lg shadow-sm active:scale-95 transition-all duration-200 border border-secondary/20" id="date-reminder-btn" type="button">
+            <span class="material-symbols-outlined text-[22px]">wine_bar</span>
+            <span class="truncate">Hẹn hò tối nay 🍷</span>
+          </button>
+        </section>
+
+        <!-- THÔNG BÁO TOAST -->
+        <div class="hidden transition-all duration-300 w-full py-3 px-4 rounded-xl bg-primary-fixed text-on-primary-fixed text-center font-label-md text-label-md shadow-lg items-center justify-center gap-2 border border-primary/20" id="toast-love-indicator">
+          <span class="material-symbols-outlined text-[20px] text-primary">favorite</span>
+          <span id="toast-love-msg">Đã gửi hàng ngàn nụ hôn ấm áp tới Mai!</span>
+        </div>
+      </div>
+
+      <!-- ================== CỘT PHẢI (LAPTOP) / NỬA DƯỚI (MOBILE) ================== -->
+      <div class="lg:col-span-7 flex flex-col gap-space-lg mt-2 lg:mt-0 relative">
+        
+        <!-- TÍN HIỆU YÊU & THÔNG SỐ THỰC TẾ -->
+        <section class="w-full rounded-2xl bg-surface-container p-4 md:p-6 shadow-sm border border-outline-variant/20 flex flex-col gap-4 md:gap-5">
+          <div class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-[22px] md:text-[24px]">favorite_border</span>
+              <h3 class="font-title-md text-lg md:text-xl text-on-surface font-semibold">Tín Hiệu Yêu</h3>
+            </div>
+            <!-- KHOẢNG CÁCH TÍNH TỪ DB -->
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-primary font-label-sm text-[10px] md:text-label-sm shadow-sm border border-primary/10">
+              <span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+              {{ distanceInfo?.statusMessage || 'Đang tải...' }}
+            </span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 md:gap-4">
+            <!-- HOÀNG'S TELEMETRY -->
+            <div class="p-2.5 md:p-4 rounded-xl bg-white flex flex-col gap-2 shadow-sm hover:shadow-md transition-shadow border border-surface-dim overflow-hidden">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-1.5 md:gap-2">
+                  <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary text-xs md:text-base">H</div>
+                  <span class="font-label-lg text-[13px] md:text-[16px] text-on-surface font-bold truncate max-w-[60px] md:max-w-none">{{ hoangSignal?.username || 'Nghĩa' }}</span>
+                </div>
+                <div class="flex items-center gap-1 bg-surface-container-low px-1.5 md:px-2 py-1 rounded-md text-on-surface-variant font-label-sm text-[10px] md:text-xs">
+                  <span class="material-symbols-outlined text-[14px] md:text-[16px] text-tertiary">battery_charging_80</span>
+                  <span>{{ hoangSignal?.battery || '0%' }}</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 md:gap-2 text-on-surface-variant bg-surface-container-low/50 p-1.5 md:p-2 rounded-lg mt-1">
+                <span class="material-symbols-outlined text-[16px] md:text-[20px] text-primary">wb_sunny</span>
+                <span class="font-body-md text-[11px] md:text-[15px] text-tertiary font-medium truncate">Sài Gòn • {{ hoangSignal?.temperature || '0°C' }}</span>
+              </div>
+              <span class="font-label-sm text-[10px] md:text-[11px] text-outline-variant italic px-1 truncate">{{ hoangSignal?.weather || 'Đang cập nhật' }}</span>
+            </div>
+
+            <!-- MAI'S TELEMETRY -->
+            <div class="p-2.5 md:p-4 rounded-xl bg-white flex flex-col gap-2 shadow-sm hover:shadow-md transition-shadow border border-surface-dim overflow-hidden">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-1.5 md:gap-2">
+                  <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-secondary text-xs md:text-base">M</div>
+                  <span class="font-label-lg text-[13px] md:text-[16px] text-on-surface font-bold truncate max-w-[60px] md:max-w-none">{{ maiSignal?.username || 'Thư' }}</span>
+                </div>
+                <div class="flex items-center gap-1 bg-surface-container-low px-1.5 md:px-2 py-1 rounded-md text-on-surface-variant font-label-sm text-[10px] md:text-xs">
+                  <span class="material-symbols-outlined text-[14px] md:text-[16px] text-primary">battery_charging_90</span>
+                  <span>{{ maiSignal?.battery || '0%' }}</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 md:gap-2 text-on-surface-variant bg-surface-container-low/50 p-1.5 md:p-2 rounded-lg mt-1">
+                <span class="material-symbols-outlined text-[16px] md:text-[20px] text-secondary">cloud</span>
+                <span class="font-body-md text-[11px] md:text-[15px] text-tertiary font-medium truncate">Long An • {{ maiSignal?.temperature || '0°C' }}</span>
+              </div>
+              <span class="font-label-sm text-[10px] md:text-[11px] text-outline-variant italic px-1 truncate">{{ maiSignal?.weather || 'Đang cập nhật' }}</span>
+            </div>
+          </div>
+        </section>
+
+       <!-- KHUNG TRÌNH CHIẾU ẢNH KỶ NIỆM (ĐÃ GIẢM CHIỀU CAO) -->
+       <div class="sticky top-16 z-30 bg-surface pt-3 pb-3">
+        <!-- Đổi aspect ratio ở đây để làm lùn khung ảnh: aspect-video (16:9) cho mobile, aspect-[21/9] cho laptop -->
+        <section class="relative w-full rounded-2xl bg-surface-container-high/90 shadow-md overflow-hidden flex flex-col transition-all border border-outline-variant/30 aspect-video md:aspect-[21/9] group">
+          
+          <!-- Hình ảnh tự động chuyển -->
+          <img [src]="activeMilestone.images[currentImageIndex]" (error)="onImageError($event)" 
+               class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out" 
+               alt="Memory Image">
+          
+          <!-- Lớp phủ Gradient đen để chữ dễ đọc -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40"></div>
+
+          <!-- Nội dung chữ đè lên ảnh -->
+          <div class="absolute inset-0 p-4 md:p-6 flex flex-col justify-between">
+            
+            <!-- Dòng trên cùng (Ngày tháng + Nút chuyển ảnh) -->
+            <div class="flex justify-between items-start">
+               <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white font-label-sm text-[11px] md:text-xs shadow-sm border border-white/20">
+                  <span class="material-symbols-outlined text-[14px]">event_note</span>
+                  {{ activeMilestone.dateLabel }}
+               </span>
+               <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                 <button (click)="prevImage()" class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-black/30 backdrop-blur-md text-white flex items-center justify-center hover:bg-primary transition-colors border border-white/20"><span class="material-symbols-outlined text-[20px]">chevron_left</span></button>
+                 <button (click)="nextImage()" class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-black/30 backdrop-blur-md text-white flex items-center justify-center hover:bg-primary transition-colors border border-white/20"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>
+               </div>
+            </div>
+            
+            <!-- Dòng dưới cùng (Tiêu đề và mô tả cột mốc) -->
+            <div class="flex flex-col text-white mb-1 md:mb-0">
+              <h4 class="font-headline-sm text-lg md:text-xl font-bold drop-shadow-md text-primary-fixed">{{ activeMilestone.title }}</h4>
+              <!-- Thêm line-clamp-2 để lỡ mô tả dài quá cũng không bị tràn làm che mất ảnh -->
+              <p class="font-body-md text-[13px] md:text-sm opacity-90 drop-shadow-md mt-1 line-clamp-2">{{ activeMilestone.description }}</p>
+            </div>
+          </div>
+          
+          <!-- Chấm chỉ báo trang -->
+          <div class="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
+             <span *ngFor="let img of activeMilestone.images; let i = index" 
+                   class="h-1.5 rounded-full transition-all duration-300" 
+                   [ngClass]="currentImageIndex === i ? 'bg-primary w-4' : 'bg-white/50 w-1.5'"></span>
+          </div>
+        </section>
+      </div>
+
+      <!-- DANH SÁCH CỘT MỐC ĐÁNG NHỚ TỰ ĐỘNG (TIMELINE) -->
+      <section class="w-full bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-outline-variant/20 flex flex-col gap-4">
+        <div class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[24px]">auto_stories</span>
+            <h3 class="font-headline-sm text-lg md:text-xl text-on-surface">Cột Mốc Tình Yêu</h3>
+          </div>
+          <span class="font-label-sm px-3 py-1 rounded-full bg-surface-container-low text-secondary font-bold"> Hành Trình 6 Năm</span>
+        </div>
+        
+        <!-- Trục thời gian -->
+        <div class="relative mt-2 ml-2 md:ml-4">
+          <!-- Đường thẳng dọc -->
+          <div class="absolute top-2 bottom-4 left-[7px] w-[2px] bg-primary/20"></div>
+
+          <div class="flex flex-col gap-6 pl-8">
+            
+            <!-- Dùng vòng lặp *ngFor xuất toàn bộ 8 cột mốc -->
+            <div *ngFor="let m of milestones" 
+                 (click)="selectMilestone(m)"
+                 class="relative flex flex-col gap-1.5 p-3 -ml-3 rounded-xl cursor-pointer transition-all duration-300 border border-transparent"
+                 [ngClass]="activeMilestone.id === m.id ? 'bg-primary-fixed/20 shadow-sm !border-primary/20' : 'hover:bg-surface-container-lowest'">
+              
+              <!-- Chấm tròn timeline: Phát sáng và to hơn nếu đang được chọn -->
+              <span class="absolute -left-[29px] top-4 w-4 h-4 rounded-full ring-4 ring-white flex items-center justify-center shadow-sm z-10 transition-all duration-300"
+                    [ngClass]="activeMilestone.id === m.id ? 'bg-primary scale-125 animate-pulse' : 'bg-outline-variant'"></span>
+              
+              <div class="flex flex-wrap items-center gap-2 md:gap-3">
+                <span class="font-title-md text-lg font-bold" [ngClass]="activeMilestone.id === m.id ? 'text-primary' : 'text-on-surface-variant'">{{ m.dateLabel }}</span>
+                <span class="font-label-sm px-2.5 py-0.5 rounded-md text-[10px] shadow-sm transition-colors" 
+                      [ngClass]="activeMilestone.id === m.id ? 'bg-primary text-on-primary' : 'bg-surface-container-high text-on-surface-variant'">
+                  {{ m.title }}
+                </span>
+              </div>
+              
+              <p class="font-body-md text-[13px] md:text-[15px] font-medium" [ngClass]="activeMilestone.id === m.id ? 'text-on-surface' : 'text-on-surface-variant'">
+                {{ m.description }}
+              </p>
+              <span class="font-label-sm text-primary/80 opacity-0 transition-opacity" [ngClass]="{'opacity-100 mt-1': activeMilestone.id === m.id}">
+                ▶ Đang xem ảnh của kỷ niệm này...
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+        <!-- ALBUM ẢNH PREVIEW -->
+        <section class="w-full rounded-2xl bg-surface-container-high/80 p-5 flex items-center justify-between shadow-sm border border-outline-variant/20 hover:bg-surface-variant hover:shadow-md transition-all cursor-pointer group mt-2">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+              <span class="material-symbols-outlined text-[26px]">photo_library</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-title-md text-lg text-on-surface font-bold group-hover:text-primary transition-colors">Album 6 Năm Lưu Dấu</span>
+              <span class="font-label-sm text-label-sm text-tertiary mt-0.5">1,420 bức ảnh đã được đồng bộ</span>
+            </div>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:bg-primary group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- THANH ĐIỀU HƯỚNG DƯỚI (CHỈ HIỂN THỊ TRÊN ĐIỆN THOẠI - md:hidden) -->
+  <nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/95 backdrop-blur-2xl shadow-[0_-4px_25px_rgba(218,48,84,0.1)] border-t border-outline-variant/20 md:hidden">
+    <div class="flex justify-around items-center h-20 px-2 max-w-lg mx-auto">
+      <a class="flex flex-col items-center justify-center min-w-[50px] min-h-[50px] px-1 text-primary transition-all scale-105" href="#">
+        <span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+        <span class="font-label-sm text-[10px] mt-1 whitespace-nowrap font-bold">Kỷ Niệm</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[50px] min-h-[50px] px-1 text-on-surface-variant transition-all hover:text-primary" href="#">
+        <span class="material-symbols-outlined text-[24px]">mark_email_unread</span>
+        <span class="font-label-sm text-[10px] mt-1 whitespace-nowrap">Thư Tình</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[50px] min-h-[50px] px-1 text-on-surface-variant transition-all hover:text-primary" href="#">
+        <span class="material-symbols-outlined text-[24px]">location_on</span>
+        <span class="font-label-sm text-[10px] mt-1 whitespace-nowrap">Vị Trí</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[50px] min-h-[50px] px-1 text-on-surface-variant transition-all hover:text-primary" href="#">
+        <span class="material-symbols-outlined text-[24px]">album</span>
+        <span class="font-label-sm text-[10px] mt-1 whitespace-nowrap">Nhạc Đôi</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[50px] min-h-[50px] px-1 text-on-surface-variant transition-all hover:text-primary" href="#">
+        <span class="material-symbols-outlined text-[24px]">auto_awesome_motion</span>
+        <span class="font-label-sm text-[10px] mt-1 whitespace-nowrap">Album Ảnh</span>
+      </a>
+    </div>
+  </nav>
+</div>

@@ -19,6 +19,7 @@ builder.Services.AddDbContext<KyNiem6NamContext>(options =>
 // ================= Repository (Mẫu cho project kỷ niệm) =================
 // Tạm comment, khi nào bạn tạo các file Interface và Class thì mở ra
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+builder.Services.AddScoped<IKyNiemRepository, KyNiemRepository>();
 // builder.Services.AddScoped<ILetterRepository, LetterRepository>();
 // builder.Services.AddScoped<ISavedPlaceRepository, SavedPlaceRepository>();
 // builder.Services.AddScoped<IMusicRepository, MusicRepository>();
@@ -26,6 +27,7 @@ builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
 // ================= Service (Mẫu cho project kỷ niệm) =================
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IKyNiemService, KyNiemService>();
 // builder.Services.AddScoped<ILetterService, LetterService>();
 // builder.Services.AddScoped<ISavedPlaceService, SavedPlaceService>();
 // builder.Services.AddScoped<IMusicService, MusicService>();
