@@ -1,18 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mainpage',
-  standalone: true, // Vì bạn đang dùng chuẩn mới
+  standalone: true,
   templateUrl: './mainpage.component.html',
 })
-export class MainpageComponent {
+export class MainpageComponent implements OnInit {
 
-  // Nhúng Router vào để điều hướng
+  // NHÚNG ROUTER VÀO ĐỂ ĐIỀU HƯỚNG TỰ ĐỘNG
   constructor(private router: Router) {}
 
-  // Hàm chuyển sang trang login khi bấm nút
-  moKhoaBiMat() {
-    this.router.navigate(['/login']);
+  ngOnInit(): void {
+    // NGAY KHI VỪA VÀO TRANG MAIN, TỰ ĐỘNG CHUYỂN HƯỚNG THẲNG SANG TRANG KỶ NIỆM
+    this.router.navigate(['/kyniem']);
   }
 }

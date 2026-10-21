@@ -1,0 +1,28 @@
+/* ================= CẤU HÌNH CƠ BẢN ================= */
+:host {
+  display: block;
+  background-color: #fbf8ff; /* Nền sáng toàn trang cho cả PC và Mobile */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ẨN THANH CUỘN CHO GIAO DIỆN GỌN GÀNG */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================= HIỆU ỨNG TƯƠNG TÁC VÀ KÍNH MỜ ================= */
+button, a {
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+}

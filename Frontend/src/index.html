@@ -1,13 +1,69 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>AnniversaryApp</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  </head>
-  <body>
-    <app-root></app-root>
-  </body>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>KyNiem6NamApp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- 1. GOOGLE FONTS & MATERIAL SYMBOLS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+  <!-- 2. TAILWIND CSS CDN & CONFIG FULL -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#b60e3d", "on-primary": "#ffffff", "primary-container": "#da3054", "on-primary-container": "#fffbff",
+            "secondary": "#a03b56", "secondary-container": "#ff85a1", "on-secondary-container": "#781b38",
+            "surface": "#fbf8ff", "on-surface": "#181a2e", "on-surface-variant": "#5a4042",
+            "surface-container": "#edecff", "surface-container-low": "#f4f2ff", "surface-container-high": "#e6e6ff", "surface-container-lowest": "#ffffff",
+            "surface-bright": "#fbf8ff", "tertiary": "#665a51", "tertiary-fixed": "#f1dfd3", "tertiary-fixed-dim": "#d4c3b8",
+            "outline": "#8e6f71", "outline-variant": "#e2bec0", "background": "#fbf8ff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "0.75rem"
+          },
+          fontFamily: {
+            "headline-md": ["Playfair Display"],
+            "display-lg-mobile": ["Playfair Display"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700", "letterSpacing": "-0.01em"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "body-md": ["14px", {"lineHeight": "22px", "fontWeight": "400"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+            "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "700", "letterSpacing": "0.04em"}]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background font-body-md text-body-md text-on-surface flex flex-col min-h-screen">
+  <app-root></app-root>
+</body>
 </html>
