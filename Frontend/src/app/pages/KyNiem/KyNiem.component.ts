@@ -15,8 +15,8 @@ interface Milestone {
   selector: 'app-kyniem',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './kyniem.html',
-  styleUrls: ['./kyniem.css']
+  templateUrl: './KyNiem.html',
+  styleUrls: ['./KyNiem.css']
 })
 export class KyniemComponent implements OnInit, OnDestroy {
 
